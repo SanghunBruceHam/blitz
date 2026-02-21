@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Flame, Hand, Users, Target, Club } from 'lucide-react';
+import { Globe, Flame, Hand, Users, Target, Club, Share2 } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 export const MainMenu = ({ onSelectGame }) => {
@@ -32,6 +32,24 @@ export const MainMenu = ({ onSelectGame }) => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    const handleShareApp = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Blitz - Party App',
+                    url: window.location.origin,
+                    text: 'Playing Blitz, the ultimate digital party game. Join in!'
+                });
+            } catch (err) {
+                console.log('Share error or cancelled', err);
+            }
+        } else {
+            // Fallback
+            navigator.clipboard.writeText(window.location.origin);
+            alert('Link copied!');
+        }
+    };
+
     const containerVariants = {
         hidden: { opacity: 0 },
         show: {
@@ -50,70 +68,90 @@ export const MainMenu = ({ onSelectGame }) => {
 
             {/* Top Bar for Settings */}
             <motion.div
-                ref={menuRef}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                style={{ position: 'absolute', top: '2rem', right: '1.5rem', zIndex: 10 }}
+                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', zIndex: 10, display: 'flex', alignItems: 'center', gap: '0.75rem' }}
             >
+                {/* Share App Button */}
                 <button
-                    onClick={() => setShowLanguageMenu(!showLanguageMenu)}
+                    onClick={handleShareApp}
                     style={{
                         padding: '0.75rem',
                         width: 'auto',
                         borderRadius: '50%',
                         aspectRatio: '1',
                         margin: 0,
-                        background: showLanguageMenu ? 'var(--glass-highlight)' : 'var(--glass-bg)'
+                        background: 'var(--glass-bg)',
+                        color: 'var(--neon-blue)',
+                        borderColor: 'var(--neon-blue)',
+                        boxShadow: '0 0 15px rgba(0, 240, 255, 0.2)'
                     }}
                 >
-                    <Globe size={24} color="var(--text-primary)" />
+                    <Share2 size={24} />
                 </button>
 
-                <AnimatePresence>
-                    {showLanguageMenu && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10, scale: 0.9 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -10, scale: 0.9 }}
-                            style={{
-                                position: 'absolute',
-                                top: '110%',
-                                right: 0,
-                                background: 'var(--bg-gradient-1)',
-                                border: '1px solid var(--glass-border)',
-                                borderRadius: '16px',
-                                padding: '0.5rem',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '0.5rem',
-                                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.5)'
-                            }}
-                        >
-                            {languages.map((lang) => (
-                                <button
-                                    key={lang.code}
-                                    onClick={() => changeLanguage(lang.code)}
-                                    style={{
-                                        padding: '0.5rem 1rem',
-                                        margin: 0,
-                                        fontSize: '1rem',
-                                        borderRadius: '8px',
-                                        border: 'none',
-                                        background: i18n.language === lang.code ? 'var(--accent-primary)' : 'transparent',
-                                        whiteSpace: 'nowrap',
-                                        justifyContent: 'flex-start'
-                                    }}
-                                >
-                                    {lang.label}
-                                </button>
-                            ))}
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                {/* Language Menu Toggle */}
+                <div ref={menuRef} style={{ position: 'relative' }}>
+                    <button
+                        onClick={() => setShowLanguageMenu(!showLanguageMenu)}
+                        style={{
+                            padding: '0.75rem',
+                            width: 'auto',
+                            borderRadius: '50%',
+                            aspectRatio: '1',
+                            margin: 0,
+                            background: showLanguageMenu ? 'var(--glass-highlight)' : 'var(--glass-bg)'
+                        }}
+                    >
+                        <Globe size={24} color="var(--text-primary)" />
+                    </button>
+
+                    <AnimatePresence>
+                        {showLanguageMenu && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10, scale: 0.9 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -10, scale: 0.9 }}
+                                style={{
+                                    position: 'absolute',
+                                    top: '110%',
+                                    right: 0,
+                                    background: 'var(--bg-gradient-1)',
+                                    border: '1px solid var(--glass-border)',
+                                    borderRadius: '16px',
+                                    padding: '0.5rem',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '0.5rem',
+                                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.5)'
+                                }}
+                            >
+                                {languages.map((lang) => (
+                                    <button
+                                        key={lang.code}
+                                        onClick={() => changeLanguage(lang.code)}
+                                        style={{
+                                            padding: '0.5rem 1rem',
+                                            margin: 0,
+                                            fontSize: '1rem',
+                                            borderRadius: '8px',
+                                            border: 'none',
+                                            background: i18n.language === lang.code ? 'var(--accent-primary)' : 'transparent',
+                                            whiteSpace: 'nowrap',
+                                            justifyContent: 'flex-start'
+                                        }}
+                                    >
+                                        {lang.label}
+                                    </button>
+                                ))}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
 
                 {/* After Dark Toggle */}
                 <div style={{
-                    marginTop: '1rem',
+                    margin: 0,
                     background: 'var(--glass-bg)',
                     borderRadius: '32px',
                     padding: '0.5rem 1rem',
@@ -139,7 +177,7 @@ export const MainMenu = ({ onSelectGame }) => {
                         transition: 'background 0.3s ease'
                     }}>
                         <motion.div
-                            animate={{ left: i18n.options.afterDark ? '18px' : '2px' }}
+                            animate={{ x: i18n.options.afterDark ? 16 : 0 }}
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -147,19 +185,19 @@ export const MainMenu = ({ onSelectGame }) => {
                                 borderRadius: '50%',
                                 position: 'absolute',
                                 top: '2px',
-                                boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                                left: '2px'
                             }}
                         />
                     </div>
                     <span style={{
-                        fontSize: '0.9rem',
-                        fontWeight: 'bold',
-                        color: i18n.options.afterDark ? '#ff1744' : 'var(--text-secondary)'
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        color: i18n.options.afterDark ? '#ff1744' : 'var(--text-secondary)',
+                        fontFamily: "'Space Grotesk', sans-serif"
                     }}>
-                        {t('menu.after_dark')} 18+
+                        AFTER DARK 18+
                     </span>
                 </div>
-
             </motion.div>
 
             <motion.div
