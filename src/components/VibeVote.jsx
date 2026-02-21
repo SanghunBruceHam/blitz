@@ -5,8 +5,8 @@ import { Users, Dices, Share2 } from 'lucide-react';
 import { ShareReceipt } from './ShareReceipt';
 import { GameRecommendations } from './GameRecommendations';
 
-export const VibeVote = ({ onBack, onSelectGame }) => {
-    const { t, i18n } = useTranslation();
+export const VibeVote = ({ onBack, onSelectGame, afterDark }) => {
+    const { t } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentPrompt, setCurrentPrompt] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
@@ -26,7 +26,7 @@ export const VibeVote = ({ onBack, onSelectGame }) => {
     const nextQuestion = () => {
         let prompts = t('vibevote.prompts', { returnObjects: true });
 
-        if (i18n.options.afterDark) {
+        if (afterDark) {
             const spicyPrompts = t('vibevote.after_dark_prompts', { returnObjects: true });
             if (Array.isArray(spicyPrompts)) {
                 prompts = [...prompts, ...spicyPrompts];

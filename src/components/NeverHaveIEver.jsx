@@ -5,8 +5,8 @@ import { Target, Share2 } from 'lucide-react';
 import { ShareReceipt } from './ShareReceipt';
 import { GameRecommendations } from './GameRecommendations';
 
-export const NeverHaveIEver = ({ onBack, onSelectGame }) => {
-    const { t, i18n } = useTranslation();
+export const NeverHaveIEver = ({ onBack, onSelectGame, afterDark }) => {
+    const { t } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentPrompt, setCurrentPrompt] = useState('');
 
@@ -23,7 +23,7 @@ export const NeverHaveIEver = ({ onBack, onSelectGame }) => {
     const nextQuestion = () => {
         let prompts = t('neverhave.prompts', { returnObjects: true });
 
-        if (i18n.options.afterDark) {
+        if (afterDark) {
             const spicyPrompts = t('neverhave.after_dark_prompts', { returnObjects: true });
             if (Array.isArray(spicyPrompts)) {
                 prompts = [...prompts, ...spicyPrompts];

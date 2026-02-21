@@ -9,15 +9,16 @@ import { KingsCup } from './components/KingsCup';
 
 function App() {
   const [activeGame, setActiveGame] = useState('menu');
+  const [afterDark, setAfterDark] = useState(false);
 
   const renderGame = () => {
     switch (activeGame) {
       case 'bomb31': return <Bomb31 key="bomb31" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
       case 'nunchitap': return <NunchiTap key="nunchitap" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
-      case 'vibevote': return <VibeVote key="vibevote" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
-      case 'neverhave': return <NeverHaveIEver key="neverhave" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
+      case 'vibevote': return <VibeVote key="vibevote" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} afterDark={afterDark} />;
+      case 'neverhave': return <NeverHaveIEver key="neverhave" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} afterDark={afterDark} />;
       case 'kingscup': return <KingsCup key="kingscup" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
-      default: return <MainMenu key="menu" onSelectGame={setActiveGame} />;
+      default: return <MainMenu key="menu" onSelectGame={setActiveGame} afterDark={afterDark} onToggleAfterDark={() => setAfterDark(v => !v)} />;
     }
   };
 

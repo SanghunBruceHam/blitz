@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Flame, Hand, Users, Target, Club, Share2 } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
-export const MainMenu = ({ onSelectGame }) => {
+export const MainMenu = ({ onSelectGame, afterDark, onToggleAfterDark }) => {
     const { t, i18n } = useTranslation();
     const [showLanguageMenu, setShowLanguageMenu] = useState(false);
     const menuRef = useRef(null);
@@ -160,24 +160,20 @@ export const MainMenu = ({ onSelectGame }) => {
                     gap: '0.5rem',
                     cursor: 'pointer',
                     border: '1px solid',
-                    borderColor: i18n.options.afterDark ? '#ff1744' : 'var(--glass-border)',
-                    boxShadow: i18n.options.afterDark ? '0 0 15px rgba(255, 23, 68, 0.3)' : 'none'
+                    borderColor: afterDark ? '#ff1744' : 'var(--glass-border)',
+                    boxShadow: afterDark ? '0 0 15px rgba(255, 23, 68, 0.3)' : 'none'
                 }}
-                    onClick={() => {
-                        i18n.options.afterDark = !i18n.options.afterDark;
-                        // Force re-render just by toggling a piece of local state
-                        setShowLanguageMenu(prev => prev);
-                    }}>
+                    onClick={onToggleAfterDark}>
                     <div style={{
                         width: '40px',
                         height: '24px',
-                        background: i18n.options.afterDark ? '#ff1744' : '#333',
+                        background: afterDark ? '#ff1744' : '#333',
                         borderRadius: '12px',
                         position: 'relative',
                         transition: 'background 0.3s ease'
                     }}>
                         <motion.div
-                            animate={{ x: i18n.options.afterDark ? 16 : 0 }}
+                            animate={{ x: afterDark ? 16 : 0 }}
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -192,7 +188,7 @@ export const MainMenu = ({ onSelectGame }) => {
                     <span style={{
                         fontSize: '0.8rem',
                         fontWeight: 700,
-                        color: i18n.options.afterDark ? '#ff1744' : 'var(--text-secondary)',
+                        color: afterDark ? '#ff1744' : 'var(--text-secondary)',
                         fontFamily: "'Space Grotesk', sans-serif"
                     }}>
                         AFTER DARK 18+
