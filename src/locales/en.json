@@ -13,7 +13,8 @@
         "start": "START",
         "back": "MENU",
         "next": "NEXT",
-        "done": "DONE"
+        "done": "DONE",
+        "share": "SHARE"
     },
     "bomb31": {
         "rules": "Count up by tapping +1, +2, or +3. The player who hits 31 loses and drinks!",
