@@ -1,0 +1,60 @@
+{
+    "menu": {
+        "title": "Jjan!",
+        "subtitle": "Pick your poison.",
+        "game_31bomb": "The 31 Bomb",
+        "game_nunchitap": "Nunchi Tap",
+        "game_vibevote": "Vibe Vote",
+        "language": "Language"
+    },
+    "common": {
+        "start": "START",
+        "back": "MENU",
+        "drink": "DRINK!"
+    },
+    "nunchitap": {
+        "rules": "Place phone in the center. Tap the screen in order from 1 to the number of players. If two people tap at the same time, they DRINK!",
+        "tap_to_start": "TAP TO START",
+        "game_over": "CLASH!",
+        "fail_message": "Both of you drink!",
+        "success": "SUCCESS!",
+        "success_message": "Next Round. Tap faster!"
+    },
+    "bomb31": {
+        "rules": "Take turns tapping 1, 2, or 3 times to advance the counter. The person who taps '31' explodes and DRINKS!",
+        "current_number": "CURRENT",
+        "tap_1": "+1",
+        "tap_2": "+2",
+        "tap_3": "+3",
+        "end_turn": "END TURN",
+        "boom": "BOOM!",
+        "fail_message": "You hit 31. Take a shot!"
+    },
+    "vibevote": {
+        "rules": "Read the prompt out loud. On the count of 3, everyone points to the person who fits it best. The person with the most votes spins the consequence wheel!",
+        "next_question": "NEXT VIBE",
+        "spin_wheel": "SPIN THE WHEEL",
+        "prompts": [
+            "Who is most likely to text their ex tonight?",
+            "Who has the worst taste in music?",
+            "Who is the biggest lightweight?",
+            "Who would die first in a horror movie?",
+            "Who is most likely to get arrested for a stupid reason?",
+            "Who spends the most time on TikTok?",
+            "Who has the wildest dating history?",
+            "Who is the worst driver?",
+            "Who is most likely to become a millionaire by accident?",
+            "Who is the most dramatic?",
+            "Who is secretly judging everyone right now?",
+            "Who is most likely to fake sick to get out of plans?"
+        ],
+        "consequences": [
+            "Take 1 Shot",
+            "Assign 2 Drinks",
+            "No phones for 10 mins",
+            "Speak in an accent",
+            "Drink water (Lucky!)",
+            "Post an ugly selfie"
+        ]
+    }
+}

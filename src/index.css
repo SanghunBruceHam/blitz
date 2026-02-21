@@ -1,48 +1,65 @@
-:root {
-  /* Colors */
-  --bg-color: #0a0a0a;
-  --surface-color: #1a1a1a;
-  --text-primary: #f0f0f0;
-  --text-secondary: #a0a0a0;
-  
-  /* Neon Accents */
-  --neon-pink: #ff00ff;
-  --neon-cyan: #00ffff;
-  --neon-yellow: #ffff00;
-  --neon-red: #ff3333;
-  --neon-green: #33ff33;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+:root {
+  /* Dynamic V2 Premium Colors */
+  --bg-gradient-1: #1a0b2e;
+  --bg-gradient-2: #3a1c71;
+  --bg-gradient-3: #d76d77;
+  --bg-gradient-4: #ffaf7b;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.2);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+
+  /* Brand Accents */
+  --accent-primary: #ff3366;
+  --accent-secondary: #00e5ff;
+  --accent-warn: #ffcc00;
+
+  font-family: 'Outfit', system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color: var(--text-primary);
-  background-color: var(--bg-color);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* Prevent text selection and long-press menus on mobile for game feel */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
-  min-height: 100dvh; /* Mobile viewport bug fix */
+  min-height: 100dvh;
   width: 100vw;
-  overflow: hidden; /* Prevent scrolling during games */
+  overflow: hidden;
+  /* Fluid mesh gradient background */
+  background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #root {
@@ -53,48 +70,68 @@ body {
   height: 100%;
 }
 
-/* Global Button Styles for "Fat Finger" usability */
+/* Glassmorphism Buttons */
 button {
-  background-color: var(--surface-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--text-primary);
-  border: 2px solid transparent;
-  padding: 1.5rem 2rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 12px;
+  padding: 1.25rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 24px;
   cursor: pointer;
-  transition: all 0.1s ease;
   width: 100%;
   max-width: 400px;
   margin: 0.5rem auto;
   text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-.title {
-  font-size: 3rem;
-  text-align: center;
-  margin: 2rem 0;
-  text-transform: uppercase;
-  font-weight: 900;
   letter-spacing: 2px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
-.text-pink { color: var(--neon-pink); text-shadow: 0 0 10px rgba(255, 0, 255, 0.5); }
-.text-cyan { color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
-.text-yellow { color: var(--neon-yellow); text-shadow: 0 0 10px rgba(255, 255, 0, 0.5); }
+/* Framer motion handles active states, but hover effects are good for desktop debugging */
+@media (hover: hover) {
+  button:hover {
+    background: var(--glass-highlight);
+    border-color: var(--text-secondary);
+  }
+}
+
+.title-main {
+  font-size: 4rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  /* Premium text gradient */
+  background: linear-gradient(to right, #ffffff, #ffaf7b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.subtitle-main {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
 
 /* Utility classes */
 .container {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 1.5rem;
-  max-width: 600px;
+  padding: 2rem 1.5rem;
+  max-width: 500px;
   margin: 0 auto;
   width: 100%;
 }
@@ -106,37 +143,20 @@ button:active {
   justify-content: center;
 }
 
-.flex-1 {
-  flex: 1;
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 32px;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Animations */
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-.shake {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes flash-red {
-  0% { background-color: var(--bg-color); }
-  50% { background-color: var(--neon-red); }
-  100% { background-color: var(--bg-color); }
-}
-
-.flash-red {
-  animation: flash-red 0.3s;
-  animation-iteration-count: 3;
+.text-gradient-primary {
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
