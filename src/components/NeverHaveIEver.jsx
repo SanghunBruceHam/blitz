@@ -9,34 +9,44 @@ export const NeverHaveIEver = ({ onBack, onSelectGame, afterDark }) => {
     const { t } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentPrompt, setCurrentPrompt] = useState('');
-
-    // Receipt stats tracking
+    const [usedIndices, setUsedIndices] = useState([]);
     const [promptsPlayed, setPromptsPlayed] = useState(0);
     const [showReceipt, setShowReceipt] = useState(false);
 
+    const getPrompts = () => {
+        let prompts = t('neverhave.prompts', { returnObjects: true });
+        if (afterDark) {
+            const spicy = t('neverhave.after_dark_prompts', { returnObjects: true });
+            if (Array.isArray(spicy)) prompts = [...prompts, ...spicy];
+        }
+        return prompts;
+    };
+
     const startGame = () => {
-        setIsPlaying(true);
+        setUsedIndices([]);
         setPromptsPlayed(0);
-        nextQuestion();
+        const prompts = getPrompts();
+        const i = Math.floor(Math.random() * prompts.length);
+        setCurrentPrompt(prompts[i]);
+        setUsedIndices([i]);
+        setPromptsPlayed(1);
+        setIsPlaying(true);
     };
 
     const nextQuestion = () => {
-        let prompts = t('neverhave.prompts', { returnObjects: true });
-
-        if (afterDark) {
-            const spicyPrompts = t('neverhave.after_dark_prompts', { returnObjects: true });
-            if (Array.isArray(spicyPrompts)) {
-                prompts = [...prompts, ...spicyPrompts];
-            }
+        const prompts = getPrompts();
+        const remaining = prompts.map((p, i) => ({ p, i })).filter(x => !usedIndices.includes(x.i));
+        let pick;
+        if (!remaining.length) {
+            setUsedIndices([]);
+            pick = { p: prompts[Math.floor(Math.random() * prompts.length)], i: Math.floor(Math.random() * prompts.length) };
+        } else {
+            pick = remaining[Math.floor(Math.random() * remaining.length)];
         }
-
-        // avoid same prompt back to back, though random is fine for now
-        let randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-        while (randomPrompt === currentPrompt && prompts.length > 1) {
-            randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-        }
-        setCurrentPrompt(randomPrompt);
+        setUsedIndices(prev => [...prev, pick.i]);
+        setCurrentPrompt(pick.p);
         setPromptsPlayed(prev => prev + 1);
+        if (navigator.vibrate) navigator.vibrate(30);
     };
 
     const containerVariants = {

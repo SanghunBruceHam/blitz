@@ -36,9 +36,9 @@ export const MainMenu = ({ onSelectGame, afterDark, onToggleAfterDark }) => {
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'Blitz - Party App',
+                    title: 'IGNITE 🔥 Party Games',
                     url: window.location.origin,
-                    text: 'Playing Blitz, the ultimate digital party game. Join in!'
+                    text: 'Playing IGNITE — the ultimate party game app. Join in! 🔥'
                 });
             } catch (err) {
                 console.log('Share error or cancelled', err);

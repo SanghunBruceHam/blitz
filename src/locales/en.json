@@ -89,7 +89,12 @@
             "Who is the most likely to propose a threesome tonight?",
             "Who is the loudest in the bedroom?",
             "Who would be the best sugar baby?",
-            "Who is most likely to sleep with an ex tonight?"
+            "Who is most likely to sleep with an ex tonight?",
+            "Would rather date someone way richer but boring than someone broke but exciting.",
+            "Has definitely hooked up with someone just because they were bored.",
+            "Would sell their relationship secrets for $1000.",
+            "Has considered dating someone they met that same night.",
+            "Would rather have a dramatic love story than a peaceful one."
         ],
         "consequences": [
             "TAKE 2 SHOTS",
@@ -144,7 +149,12 @@
             "Never have I ever hooked up with a friend's ex.",
             "Never have I ever joined the mile high club.",
             "Never have I ever faked an orgasm.",
-            "Never have I ever used a dating app just for hookups."
+            "Never have I ever used a dating app just for hookups.",
+            "I have never pretended to be on the phone to avoid someone.",
+            "I have never had a crush on a fictional character that was embarrassingly intense.",
+            "I have never made up an excuse to leave a bad date early.",
+            "I have never gone through something painful just to impress someone.",
+            "I have never regretted a relationship that everyone told me was a bad idea."
         ]
     },
     "kingscup": {
@@ -342,6 +352,26 @@
             {
                 "q": "Who sends a 'you up?' text and calls it romance?",
                 "guilty": "boys"
+            },
+            {
+                "q": "More likely to catch feelings from a single good conversation?",
+                "guilty": "girls"
+            },
+            {
+                "q": "More likely to have a 'type' but never actually date that type?",
+                "guilty": "boys"
+            },
+            {
+                "q": "More likely to overanalyze a simple text?",
+                "guilty": "girls"
+            },
+            {
+                "q": "More likely to say 'I love you' way too early?",
+                "guilty": "boys"
+            },
+            {
+                "q": "More likely to stay in a toxic relationship because the chemistry is fire?",
+                "guilty": "girls"
             }
         ]
     },
@@ -375,14 +405,39 @@
             "What's a habit you'd be embarrassed if people found out about?",
             "Have you ever sent a text to the wrong person by accident?",
             "What's the biggest white lie you tell regularly?",
-            "Have you ever faked being asleep to avoid a conversation?"
+            "Have you ever faked being asleep to avoid a conversation?",
+            "What's the most cringe thing you've done trying to impress someone?",
+            "Have you ever blamed a fart on someone else?",
+            "What's the longest you've gone without showering?",
+            "Have you ever lied about watching a show just to fit in?",
+            "What's the most money you've wasted on something dumb?",
+            "Have you ever regifted a present?",
+            "What's the pettiest reason you've stopped talking to someone?",
+            "Have you ever pretended to know a song everyone was singing?",
+            "What's something you've done that would surprise your parents?",
+            "Have you ever stolen something from a store?",
+            "What's your most embarrassing autocorrect fail?",
+            "Have you ever lied about your age?",
+            "What's the longest grudge you've ever held?",
+            "Have you ever eaten something off the floor?",
+            "What's the weirdest thing you've done home alone?",
+            "Have you ever cried after watching TikTok?",
+            "What's a subscription you're embarrassed to have?",
+            "Have you ever pretended to work while doing nothing?",
+            "What's the most embarrassing thing saved in your notes app?",
+            "Have you ever lied on your resume?"
         ],
         "after_dark_prompts": [
             "What's the most embarrassing situation you've been in with someone you were attracted to?",
             "Have you ever kissed someone in this room?",
             "What's the furthest you've gone on a first date?",
             "Have you ever had a dream about someone in this room?",
-            "What's the boldest move you've ever made on someone?"
+            "What's the boldest move you've ever made on someone?",
+            "What's the most embarrassing thing that happened during intimacy?",
+            "Have you ever caught feelings for a friend with benefits?",
+            "What's the biggest age gap you've dated?",
+            "Have you ever been caught in a compromising situation?",
+            "What's the most forward message you've ever sent someone?"
         ]
     },
     "mostwanted": {
@@ -413,14 +468,39 @@
             "Most likely to trip walking up stairs",
             "Most likely to be famous in 10 years",
             "Most likely to still be single at 40 because they're too picky",
-            "Most likely to end up on a reality TV show"
+            "Most likely to end up on a reality TV show",
+            "Most likely to drunk text their boss",
+            "Most likely to start a fight at karaoke",
+            "Most likely to date someone they met online today",
+            "Most likely to eat an entire pizza alone",
+            "Most likely to get a tattoo they'll regret",
+            "Most likely to go viral on social media",
+            "Most likely to cry at their own birthday party",
+            "Most likely to survive a zombie apocalypse",
+            "Most likely to marry for money",
+            "Most likely to become a motivational speaker after one good day",
+            "Most likely to have a burner account",
+            "Most likely to accidentally call their teacher 'mom'",
+            "Most likely to get into a fight over food",
+            "Most likely to be the last one standing at an all-nighter",
+            "Most likely to cry watching an anime",
+            "Most likely to fall in love on the first date",
+            "Most likely to accidentally set off a fire alarm",
+            "Most likely to quit their job to chase a dream",
+            "Most likely to laugh at their own joke before finishing it",
+            "Most likely to be caught talking to themselves in public"
         ],
         "after_dark_prompts": [
             "Most likely to have a secret they'd die if their parents found out",
             "Most likely to swipe right on someone they just said they'd never date",
             "Most likely to have a hidden situationship right now",
             "Most likely to fall in love on vacation and ghost them after",
-            "Most likely to have kissed someone in this room"
+            "Most likely to have kissed someone in this room",
+            "Most likely to have an embarrassing browser history right now",
+            "Most likely to have hooked up with someone in this room",
+            "Most likely to have a list of exes longer than their grocery list",
+            "Most likely to catch feelings after a one night stand",
+            "Most likely to send a risky photo to the wrong person"
         ]
     },
     "orwhat": {
@@ -514,6 +594,86 @@
             {
                 "a": "Never age past 25",
                 "b": "Know everything about your future"
+            },
+            {
+                "a": "Relive your most embarrassing moment weekly",
+                "b": "Never feel embarrassment again but lose all humor"
+            },
+            {
+                "a": "Have everyone hear your thoughts for a day",
+                "b": "Hear everyone's thoughts about you for a day"
+            },
+            {
+                "a": "Give up all sweets forever",
+                "b": "Give up all savory food forever"
+            },
+            {
+                "a": "Live without music",
+                "b": "Live without movies"
+            },
+            {
+                "a": "Be able to fly but only 3 feet off the ground",
+                "b": "Be able to teleport but only to places you've been"
+            },
+            {
+                "a": "Have free WiFi everywhere forever",
+                "b": "Have free coffee everywhere forever"
+            },
+            {
+                "a": "Be stuck in an elevator with your ex for 8 hours",
+                "b": "Be stuck with your boss for 8 hours"
+            },
+            {
+                "a": "Know every language but never travel",
+                "b": "Travel everywhere but only speak your native language"
+            },
+            {
+                "a": "Win $10M but your ex gets $20M",
+                "b": "Win nothing and nobody gets anything"
+            },
+            {
+                "a": "Always be 10 minutes late",
+                "b": "Always be 20 minutes early"
+            },
+            {
+                "a": "Have a rewind button for your life",
+                "b": "Have a pause button for your life"
+            },
+            {
+                "a": "Live in a world with no internet",
+                "b": "Live in a world with no privacy"
+            },
+            {
+                "a": "Be the funniest person alive but ugly",
+                "b": "Be the most attractive person alive but boring"
+            },
+            {
+                "a": "Eat only breakfast food for every meal",
+                "b": "Never eat breakfast food again"
+            },
+            {
+                "a": "Have your search history published",
+                "b": "Have your deleted messages published"
+            },
+            {
+                "a": "Always know when someone is lying",
+                "b": "Always get away with lying"
+            },
+            {
+                "a": "Give up your phone for a year",
+                "b": "Give up your bed for a year"
+            },
+            {
+                "a": "Be feared by everyone",
+                "b": "Be loved by everyone but never respected"
+            },
+            {
+                "a": "Live in the past knowing what you know now",
+                "b": "Live in the future not knowing anything"
+            },
+            {
+                "a": "Only be able to whisper",
+                "b": "Only be able to shout"
             }
         ],
         "after_dark_prompts": [
@@ -536,6 +696,26 @@
             {
                 "a": "Date your best friend",
                 "b": "Stay friends with them forever"
+            },
+            {
+                "a": "Have your partner read your entire DM history",
+                "b": "Read your partner's entire DM history"
+            },
+            {
+                "a": "A perfect body but terrible personality",
+                "b": "An average body but incredible charisma"
+            },
+            {
+                "a": "Date someone who's 10/10 looks but 3/10 personality",
+                "b": "Date someone who's 3/10 looks but 10/10 personality"
+            },
+            {
+                "a": "Your parents see your browser history",
+                "b": "Your employer sees your browser history"
+            },
+            {
+                "a": "Only date people your friends choose",
+                "b": "Only date people your parents choose"
             }
         ]
     },
@@ -571,14 +751,39 @@
             "What's a food opinion that would get you cancelled?",
             "Who in this room do you think is the most mature?",
             "If this group made a reality show, what would your edit be?",
-            "What's something you did this week you're not proud of?"
+            "What's something you did this week you're not proud of?",
+            "What's the most toxic trait you have in relationships?",
+            "If you could steal one person's life here, whose would it be?",
+            "What's a promise you've broken that still haunts you?",
+            "Who in this room do you think talks about you the most behind your back?",
+            "What's your honest opinion of the last person who texted you?",
+            "If you had to date someone in this room, who would it be?",
+            "What's the most manipulative thing you've done?",
+            "Show the last photo in your recently deleted folder.",
+            "What's something you pretend to like but actually hate?",
+            "Who in this room would you NOT want as a roommate?",
+            "What's the meanest thing you've ever said to someone?",
+            "If you could uninvite one person from tonight, who?",
+            "What's your hottest take that would get you in trouble?",
+            "Who in this room are you secretly competitive with?",
+            "What's the worst thing you've ever done to a friend?",
+            "Rate everyone's fashion sense from best to worst.",
+            "What's a red flag you ignore because you're lonely?",
+            "Who in this room would survive the longest on a desert island?",
+            "What's something you judge your friends for but do yourself?",
+            "If your life was a movie, who'd play you — and who'd no one want to play?"
         ],
         "after_dark_prompts": [
             "Who in this room do you find most attractive? Be honest.",
             "What's something you've done that you'd be ashamed to tell a partner?",
             "Have you ever had feelings for someone in this room?",
             "Show your recent likes on social media. All of them.",
-            "What's the boldest thing you've done for someone you were attracted to?"
+            "What's the boldest thing you've done for someone you were attracted to?",
+            "What's the boldest lie you've told to get someone's attention?",
+            "Describe your type using only people in this room.",
+            "What's the craziest thing you've done for attraction?",
+            "Have you ever pretended to be single when you weren't?",
+            "What's a secret fantasy you'd never admit to anyone?"
         ]
     },
     "twolies": {
@@ -612,14 +817,34 @@
             "Something weird that happened while traveling",
             "Your relationship history",
             "A night out that went sideways",
-            "Something from your work or school life"
+            "Something from your work or school life",
+            "A weird food combination you love",
+            "Something you've been fired or almost fired for",
+            "A celebrity encounter you've had",
+            "Your worst cooking disaster",
+            "Something that happened on a road trip",
+            "A time you absolutely nailed it",
+            "Your most irrational fear",
+            "A time you broke the rules",
+            "Something weird about your family",
+            "A hobby nobody knows about",
+            "Your worst fashion phase",
+            "A time technology completely failed you",
+            "Something that happened at a wedding",
+            "Your weirdest flex",
+            "A time you were completely wrong about someone"
         ],
         "after_dark_prompts": [
             "Your most scandalous encounter",
             "Facts about someone you've been with",
             "Your most intimate secret",
             "The last time you were in a situationship",
-            "What you really think about relationships"
+            "What you really think about relationships",
+            "Your most embarrassing hookup story",
+            "A rule you broke that you'd break again",
+            "Something your ex would say about you",
+            "Your most awkward morning after",
+            "A dating app disaster"
         ]
     }
 }
