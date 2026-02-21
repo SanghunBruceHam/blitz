@@ -116,14 +116,14 @@ export const MainMenu = ({ onSelectGame }) => {
                                     position: 'absolute',
                                     top: '110%',
                                     right: 0,
-                                    background: 'var(--bg-gradient-1)',
+                                    background: '#111116',
                                     border: '1px solid var(--glass-border)',
                                     borderRadius: '16px',
                                     padding: '0.5rem',
                                     display: 'flex',
                                     flexDirection: 'column',
                                     gap: '0.5rem',
-                                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.5)'
+                                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.8)'
                                 }}
                             >
                                 {languages.map((lang) => (
